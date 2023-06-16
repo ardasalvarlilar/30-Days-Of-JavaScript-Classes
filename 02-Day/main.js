@@ -252,11 +252,11 @@ console.log(string.toLowerCase()) // javascript
 console.log(firstName.toLowerCase()) // arda
 console.log(country.toLowerCase()) // türkiye
 // -------------------------------------------------
-// .substr()
+// .substr() It takes two arguments, the starting index and number of characters to slice.
 console.log(string.substr(4,6))    // Script
 console.log(country.substr(3, 4))   // iye
 //---------------------------------------------------
-// .substing()
+// .substing() It takes two arguments, the starting index and the stopping index but it doesn't include the character at the stopping index.
 console.log(string.substring(0,4))     // Java
 console.log(string.substring(4,10))    // Script
 console.log(string.substring(4))       // Script
@@ -264,7 +264,7 @@ console.log(country.substring(0, 3))   // TÜRK
 console.log(country.substring(3, 7))   // kiye
 console.log(country.substring(3))      // kiye
 //---------------------------------------------------
-// .string()
+// .split()
 string = '30 Days Of JavaScript'
 console.log(string.split()) // changed to an array ['30 Days Of JavaScript']
 console.log(string.split(' ')) // split to an array at space ['30', 'Days', 'Of', 'JavaScript']
@@ -348,3 +348,107 @@ console.log(string.concat("Days", "Of", "JavaScript")) // 30DaysOfJavaScript
 
 country = 'Fin'
 console.log(country.concat("land")) // Finland
+//------------------------------------------------------
+//string.startsWith(substring)
+string = 'Love is the best to in this world'
+//takes substring parameter to check is the word starts with that substring and returns boolean
+console.log(string.startsWith('Love'))// true
+console.log(string.startsWith('love'))// false
+//------------------------------------------------------
+// string.endsWith(substring)
+string = 'love is the most overful feeling in the world'
+console.log(string.endsWith('world'))// true
+console.log(string.endsWith('love'))// false
+//------------------------------------------------------
+// string.search(substring)
+// takes a substring as an argument and returns the word's first char's index
+string = 'I love javaScript. If you do not love javaScript what else can you love'
+console.log(string.search('love')) // 2
+console.log(string.search(/javaScript/)) // 7 
+//-----------------------------------------------------
+// string.match() 
+string = 'love'
+let patternOne = /love/     // with out any flag
+let patternTwo = /love/gi   // g-means to search in the whole text, i - case insensitive
+string = 'I love javaScript. If you do not love javaScript what else can you love'
+console.log(string.match('love'))
+// ['love', index: 2, input: 'I love javaScript. If you do not love javaScript what else can you love', groups: undefined]
+let txt = 'In 2019, I ran 30 Days of Python. Now, in 2020 I am super exited to start this challenge'
+let regEx = /\d+/
+
+// d with escape character means d not a normal d instead acts a digit
+// + means one or more digit numbers,
+// if there is g after that it means global, search everywhere.
+console.log(txt.match(regEx))  // ["2", "0", "1", "9", "3", "0", "2", "0", "2", "0"]
+console.log(txt.match(/\d+/g)) // ["2019", "30", "2020"]
+//-------------------------------------------------------
+// string.repeat(n)
+string = 'love'
+console.log(string.repeat(10)) // lovelovelovelovelovelovelovelovelovelove
+
+// CHECKING DATA TYPES AND CASTING  
+// to check the data type of certain variable we use the typeof method
+
+let myFirstName = 'Arda' //string
+let myLastName = 'Şalvarlılar' //string
+let myCountry = 'Türkiye' //string
+let myCity = 'Izmir' // string
+let thisMyAge = 21 // number
+let myJob // ubdefined a value bot assigned 
+console.log(typeof myFirstName) //string
+console.log(typeof myLastName) // string
+console.log(typeof 10) // number
+console.log(typeof 3.14) // number
+console.log(typeof true) // boolean
+console.log(typeof false) // boolean
+console.log(typeof NaN) // number
+console.log(typeof myJob) // undefined
+console.log(typeof undefined) // undefined
+console.log(typeof null) // object
+//---------------------------------------------------------
+
+// Changing Data Type 
+// Casting: Converting one data type to another data type. We use parseInt(), parseFloat(), Number(), + sign, str() When we do arithmetic operations string numbers should be first converted to integer or float if not it returns an error.
+/*
+STRING TO INTEGER(INT) the shortcase of integer is int
+parseInt()
+Number 
+Plus sign
+*/
+
+let myNum = '10' // this is not a number this is a string because of te quotes
+let myNumInt = parseInt(myNum)
+console.log(myNumInt) // 10 as a number
+
+myNum = '20'
+myNumInt = Number(myNum) // same useage with parseInt()
+console.log(myNumInt)
+
+myNum = '30'
+myNumInt = +myNum // same with parseInt and Number instead of a word an parantheses assigned with plus sign
+console.log(myNumInt)
+
+/*
+STRING TO FLOAT
+parseFloat()
+Number()
+plus sign
+*/
+
+myNum = '9.81' // this is not a number this is a string because of te quotes
+let myNumFloat = parseFloat(myNum)
+console.log(myNumFloat)
+
+myNumFloat = Number(myNum)
+console.log(myNumFloat)
+
+myNumFloat = +myNum
+console.log(myNumFloat)
+
+/*
+FLOAT TO INT
+parseInt()
+*/
+let globeGravity = 9.81
+let gravityInt = parseInt(globeGravity)
+console.log(gravityInt)// 9
