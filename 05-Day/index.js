@@ -13,7 +13,7 @@
 // How to create an array with values
 
 let numbers = [0, 3.14, 9.81, 37, 98.6, 100] // array of numbers
-const fruits = ['banana', 'orange', 'mango', 'lemon'] // array of strings, fruits
+let fruits = ['banana', 'orange', 'mango', 'lemon'] // array of strings, fruits
 const vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot'] // array of strings, vegetables
 const animalProducts = ['milk', 'meat', 'butter', 'yoghurt'] // array of strings, products
 let webTechs = ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'MongDB'] // array of web technologies
@@ -41,7 +41,7 @@ console.log('Number of countries:', countries.length)
 
 // array can have items of different data types
 
-const array = [
+let array = [
   'Asabeneh',
   250,
   true,
@@ -64,7 +64,7 @@ const words = text.split(' ')
 console.log(words)
 
 // Accessing array items using index
-const friuts = ['banana', 'orange', 'mango','lemon']
+let friuts = ['banana', 'orange', 'mango','lemon']
 let firstFriut = friuts[0]
 console.log(firstFriut)
 
@@ -207,3 +207,176 @@ console.log(numbers.indexOf(5)) // -> 4
 console.log(numbers.indexOf(0)) // -> -1
 console.log(numbers.indexOf(1)) // -> 0
 console.log(numbers.indexOf(6)) // -> -1
+console.log('-----------------------------------------')
+//Check an element if it  exist in the array
+fruits = ['banana', 'orange', 'mango', 'lemon']
+let index = friuts.indexOf('banana')
+if(index == -1){
+  console.log('this fruit does not exist in the array')
+}else{
+  console.log('this fruit is exist in the array')
+}
+//this fruit is exist in the array
+//we can use also ternary here
+index === -1 ? console.log('this fruit does not exist in the array') : console.log('this fruit is exist in the array')
+let indexOfAvocado = friuts.indexOf('avocado')
+if(indexOfAvocado === -1){
+  console.log('this fruit is not exist in the array')
+}else{
+  console.log('this fruit is exist in the array')
+}
+//this fruit is not exist in the array
+
+//Getting last index of an element in array
+numbers = [1,2,3,4,5,3,1,2]
+console.log(numbers.lastIndexOf(2))
+console.log(numbers.lastIndexOf(0))
+console.log(numbers.lastIndexOf(1))
+console.log(numbers.lastIndexOf(4))
+console.log(numbers.lastIndexOf(6))
+
+// includes:To check if an item exist in an array. If it exist it returns the true else it returns false.
+numbers = [1,2,3,4,5,3,1,2]
+console.log(numbers.includes(5)) // true
+console.log(numbers.includes(0)) // false
+console.log(numbers.includes(1)) // true
+console.log(numbers.includes(6)) // false
+webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB'
+]
+console.log(webTechs.includes('Node')) // true
+console.log(webTechs.includes('C')) // false
+
+// checking array
+numbers  = [1,2,3,4,5]
+console.log(Array.isArray(numbers)) // true
+let number = 100
+console.log(Array.isArray(number)) // false
+
+// Converting arrays to string
+numbers = [1,2,3,4,5]
+console.log(numbers.toString()) // 1,2,3,4,5
+let names = ['Asabeneh','Mathias','Elias','Brook']
+console.log(names.toString()) // Asabeneh,Mathias,Elias,Brook
+
+// joining array elements
+numbers = [1,2,3,4,5]
+console.log(numbers.join()) //1,2,3,4,5
+names = ['Asabeneh','Mathias','Elias','Brook']
+console.log(names.join()) // Asabeneh,Mathias,Elias,Brook
+console.log(names.join('')) // AsabenehMathiasEliasBrook
+console.log(names.join(' ')) // Asabeneh Mathias Elias Brook
+console.log(names.join('  ')) // Asabeneh  Mathias  Elias  Brook
+console.log(names.join(' # ')) // Asabeneh # Mathias # Elias # Brook
+
+webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB'
+]
+console.log(webTechs.join()) // HTML,CSS,JavaScript,React,Redux,Node,MongoDB
+console.log(webTechs.join( '#' )) // HTML#CSS#JavaScript#React#Redux#Node#MongoDB
+
+// slice array elements
+numbers = [1,2,3,4,5]
+numbers .slice(1,3)
+console.log(numbers)
+console.log(numbers.slice()) // copied all items [1,2,3,4,5]
+console.log(numbers.slice(0)) // copied all items [1,2,3,4,5]
+console.log(numbers.slice(0,numbers.length)) // copied all items [1,2,3,4,5]
+console.log(numbers.slice(1,4)) // [2,3,4] it does not include the ending position
+
+
+// splice method in array
+numbers = [1,2,3,4,5]
+numbers.splice('')
+console.log(numbers) // remove all items
+
+numbers = [1,2,3,4,5]
+numbers.splice(0,1) // remoce the first item
+console.log(numbers)
+
+numbers = [1,2,3,4,5,6]
+console.log(numbers.splice(3,3,7,8,9))
+console.log(numbers) // started from 3rd index removed next three item and replaced the three item with 7,8,9
+
+// adding item to an array using push
+array = ['item1','item2','item3']
+console.log(array)
+array.push('new item')
+console.log(array) //  ['item1', 'item2', 'item3', 'new item']
+
+numbers = [1,2,3,4,5]
+numbers.push(6)
+console.log(numbers) // [1, 2, 3, 4, 5, 6]
+
+// .pop()
+numbers = [1,2,3,4,5,6]
+numbers.pop(6)
+console.log(numbers) // [1, 2, 3, 4, 5] removed one item from the end
+
+fruits = ['banana','orange','mango','lemon']
+friuts.push('apple')
+console.log(friuts) // ['banana', 'orange', 'mango', 'lemon', 'apple']
+friuts.push('lime')
+console.log(friuts) //  ['banana', 'orange', 'mango', 'lemon', 'apple', 'lime']
+
+// removing the end element using pop
+numbers = [1,2,3,4,5]
+numbers.pop()
+console.log(numbers)//[1, 2, 3, 4]
+
+// removing pne array element in the beginning of the array
+numbers = [1,2,3,4,5]
+numbers.shift()
+console.log(numbers) // [2, 3, 4, 5]
+
+// add element to beginning of the array
+
+numbers = [1,2,3,4,5]
+numbers.unshift(0)
+console.log(numbers) // [0, 1, 2, 3, 4, 5]
+
+// reversing array order
+number = [1,2,3,4,5]
+numbers.reverse()
+console.log(numbers) // [5, 4, 3, 2, 1, 0]
+
+// Sorting elements in array
+webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB',
+]
+console.log(webTechs)
+webTechs.sort()
+console.log(webTechs)// ['CSS', 'HTML', 'JavaScript', 'MongoDB', 'Node', 'React', 'Redux']
+
+// Array of arrays
+let firstNums = [1,2,3]
+let secondNums = [1,4,9]
+
+let arrayOfArray = [[1,2,3],[1,2,3]]
+console.log(arrayOfArray[0]) // [1,2,3]
+
+let frontEnd = ['HTML','CSS','JS','React','Redux']
+let backEnd = ['Node','Express','MongoDB']
+let fullStack = [frontEnd, backEnd]
+console.log(fullStack) // [["HTML", "CSS", "JS", "React", "Redux"], ["Node", "Express", "MongoDB"]]
+console.log(fullStack.length) // 2
+console.log(fullStack[0]) // ["HTML", "CSS", "JS", "React", "Redux"]
+console.log(fullStack[1]) // ["Node", "Express", "MongoDB"]
