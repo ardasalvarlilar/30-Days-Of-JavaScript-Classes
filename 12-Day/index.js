@@ -130,5 +130,70 @@ r'apple|banana' mean either of an apple or a banana
 
 // Let's use example to clarify the above meta characters
 
+
 // Square Bracket
 // Let's use square bracket to include lower and upper case
+
+pattern = '[Aa]pple' // this square bracket means either A or a
+txt = 'Apple and banana are fruits. An old cliche says an apple a day keeps the  doctor way has been replaced by a banana a day keeps the doctor far far away.'
+let matches = txt.match(pattern)
+
+console.log(matches)  
+// ["Apple", index: 0, input: "Apple and banana are fruits. An old cliche says an apple a day keeps the  doctor way has been replaced by a banana a day keeps the doctor far far away.", groups: undefined]
+
+pattern = /[Aa]pple/g
+txt = 'Apple and banana are fruits. An old cliche says an apple a day keeps the  doctor way has been replaced by a banana a day keeps the doctor far far away.'
+matches = txt.match(pattern)
+console.log(matches) //  ['Apple', 'apple']
+
+// If we want to look for the banana, we write the pattern as follows:
+
+pattern = /[Aa]pple|[Bb]anana/g
+txt = 'Apple and banana are fruits. An old cliche says an apple a day keeps the  doctor way has been replaced by a banana a day keeps the doctor far far away.'
+matches = txt.match(pattern)
+console.log(matches) // ["Apple", "banana", "apple", "banana", "Banana"]
+// Using the square bracket and or operator , we manage to extract Apple, apple, Banana and banana.
+
+// Escape character(\) in RegExp
+pattern = /\d/g // d is a special character which means digits
+txt = 'This regular exression example was made in july 4, 2023.'
+matches = txt.match(pattern)
+console.log(matches) // ['4', '2', '0', '2', '3'] this is not what we want
+
+pattern = /\d+/g 
+txt = 'This regular exression example was made in july 4, 2023.'
+matches = txt.match(pattern)
+console.log(matches) // ['4', '2023']
+
+// One or more times(+)
+pattern = /\d+/g
+txt = 'This regular exression example was made in july 4, 2023.'
+matches = txt.match(pattern)
+console.log(matches) // this is not what we want
+
+// Period(.)
+pattern = /[a]./g // this square bracket means a and . means any character except new line
+txt = 'Apple and banana are fruits' 
+matches = txt.match(pattern)
+console.log(matches) // ['an', 'an', 'an', 'a ', 'ar']
+
+pattern = /[a].+/g // . any character, + any character one or more times 
+txt = 'Apple and banana are fruits'
+matches = txt.match(pattern)
+console.log(matches) // ['and banana are fruits']
+
+// Zero or more times(*)
+// Zero or many times. The pattern may not occur or it can occur many times.
+pattern = /[a].*/g //. any character, + any character one or more times 
+txt = 'Apple and banana are fruits'
+matches = txt.match(pattern)
+console.log(matches) // ['and banana are fruits']
+
+// Zero or one times(?)
+// Zero or one times. The pattern may not occur or it may occur once.
+
+txt = 'I am not sure if there is a convention how to write the word e-mail.\
+Some people write it email others may write it as Email or E-mail.'
+pattern = /[Ee]-?mail/g
+matches = txt.match(pattern)
+console.log(matches) // ["e-mail", "email", "Email", "E-mail"]
